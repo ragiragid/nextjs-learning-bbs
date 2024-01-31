@@ -1,3 +1,5 @@
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
 export default function Login() {
@@ -35,8 +37,12 @@ export default function Login() {
             />
           </div>
           <div className="flex items-center justify-between mb-4">
-            <button className="bg-blue-500 text-white p-2 rounded-md">
-              ログイン
+            <button className="bg-blue-500 text-white p-2 rounded-md mr-4">
+              <FontAwesomeIcon
+                icon={faRightToBracket}
+                className="h-[20px] inline"
+              />
+              &nbsp; ログイン
             </button>
             <Link href="/user/create" className="text-blue-500">
               新規登録はこちら

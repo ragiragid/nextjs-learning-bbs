@@ -14,7 +14,8 @@ export default function CreateForm() {
   const initialState = { message: null, errors: {} }
   const [state, dispatch] = useFormState(createUser, initialState)
   const Today = new Date()
-  const [birthday, setBirthday] = useState(Today)
+  const [birthday, setBirthday] = useState<Date | null>(null)
+
   return (
     <form action={dispatch}>
       <div className="flex h-screen justify-center items-center">
@@ -113,11 +114,12 @@ export default function CreateForm() {
             <DatePicker
               locale="ja"
               onChange={(selectedDate) => {
-                setBirthday(selectedDate || Today)
+                setBirthday(selectedDate)
               }}
               dateFormat="yyyy/MM/dd"
               selected={birthday}
               maxDate={Today}
+              name="birthday"
             />
           </div>
           <div id="birthday-error" aria-live="polite" aria-atomic="true">
@@ -136,8 +138,8 @@ export default function CreateForm() {
             >
               新規登録
             </button>
-            <Link href="/" className="text-blue-500">
-              キャンセル
+            <Link href="/login" className="text-blue-500">
+              ログイン画面に戻る
             </Link>
           </div>
         </div>
